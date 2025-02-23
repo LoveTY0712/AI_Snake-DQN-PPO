@@ -13,14 +13,15 @@
 ```
 Snake-DQN-PPO/
 ├── README.md                   # 项目说明文档
-├── config.py                   # 配置文件，包含超参数设置
-├── snake_game.py               # 贪吃蛇游戏环境实现
-├── my_dqn.py                   # DQN 模型和智能体实现
-├── dqn_train.py                # DQN 模型训练脚本
-├── Env4PPO.py                  # 适配 PPO 的贪吃蛇环境类
-├── ppo_train.py                # PPO 模型训练脚本
+├── src/                        # 源代码文件夹
+│   ├── config.py               # 配置文件，包含超参数设置
+│   ├── snake_game.py           # 贪吃蛇游戏环境实现
+│   ├── my_dqn.py               # DQN 模型和智能体实现
+│   ├── dqn_train.py            # DQN 模型训练脚本
+│   ├── Env4PPO.py              # 适配 PPO 的贪吃蛇环境类
+│   └── ppo_train.py            # PPO 模型训练脚本
 ├── models/                     # 训练好的模型文件（可选）
-├── results/                    # 训练结果和可视化图像
+├── reference/                  # 参考文献
 └── Report.pdf                  # 实验报告
 ```
 
