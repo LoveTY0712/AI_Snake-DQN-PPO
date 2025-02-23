@@ -1,74 +1,74 @@
-# Snake-DQN-PPO: 使用 DQN 和 PPO 训练贪吃蛇智能体
+# Snake-DQN-PPO: Training Snake Game Agents with DQN and PPO
 
-## 项目简介
-本项目旨在通过深度强化学习算法（DQN 和 PPO）训练智能体玩经典的贪吃蛇游戏。项目实现了两种算法的建模与训练，并对比了它们在游戏中的表现。通过此项目，可以深入了解强化学习算法在游戏智能体训练中的应用。
+## Project Introduction
+This project aims to train AI agents to play the classic Snake game using two major reinforcement learning algorithms: DQN (Deep Q-Network) and PPO (Proximal Policy Optimization). The project implements the modeling and training of both algorithms and compares their performance in the game. Through this project, you can gain a deep understanding of the application of reinforcement learning algorithms in training game agents.
 
-## 功能特点
-- 使用 **DQN（深度 Q 网络）** 和 **PPO（近端策略优化）** 算法分别训练智能体。
-- 提供详细的实验结果分析，对比两种算法的性能。
-- 支持可视化训练过程，记录智能体的得分、存活步数等指标。
-- 提供完整的代码实现，包括环境搭建、模型训练和结果展示。
+## Features
+- **DQN (Deep Q-Network)** and **PPO (Proximal Policy Optimization)** algorithms are used to train agents separately.
+- Detailed analysis and comparison of the performance of both algorithms are provided.
+- Visualization of the training process is supported, including recording the agent's scores and survival steps.
+- Complete code implementations are provided, including environment setup, model training, and result visualization.
 
-## 项目结构
+## Project Structure
 ```
 Snake-DQN-PPO/
-├── README.md                   # 项目说明文档
-├── src/                        # 源代码文件夹
-│   ├── config.py               # 配置文件，包含超参数设置
-│   ├── snake_game.py           # 贪吃蛇游戏环境实现
-│   ├── my_dqn.py               # DQN 模型和智能体实现
-│   ├── dqn_train.py            # DQN 模型训练脚本
-│   ├── Env4PPO.py              # 适配 PPO 的贪吃蛇环境类
-│   └── ppo_train.py            # PPO 模型训练脚本
-├── models/                     # 训练好的模型文件（可选）
-├── reference/                  # 参考文献
-└── Report.pdf                  # 实验报告
+├── README.md                   # Project documentation
+├── src/                        # Source code folder
+│   ├── config.py               # Configuration file with hyperparameters
+│   ├── snake_game.py           # Implementation of the Snake game environment
+│   ├── my_dqn.py               # DQN model and agent implementation
+│   ├── dqn_train.py            # DQN model training script
+│   ├── Env4PPO.py              # Snake environment class adapted for PPO
+│   └── ppo_train.py            # PPO model training script
+├── models/                     # Trained model files (optional)
+├── reference/                  # References
+└── Report.pdf                  # Experimental report
 ```
 
-## 运行环境
-- **Python**：3.8 或更高版本
-- **依赖库**：
-  - PyTorch：用于深度学习模型的构建和训练。
-  - Stable Baselines3：用于 PPO 算法的实现。
-  - Gymnasium：用于环境接口的定义和交互。
-  - Pygame：用于贪吃蛇游戏的可视化。
-  - WandB：用于训练过程的可视化和日志记录（可选）。
+## Environment Requirements
+- **Python**: Version 3.8 or higher
+- **Dependencies**:
+  - PyTorch: For building and training deep learning models.
+  - Stable Baselines3: For implementing the PPO algorithm.
+  - Gymnasium: For defining and interacting with the environment.
+  - Pygame: For visualizing the Snake game.
+  - WandB: For visualizing the training process and logging (optional).
 
-安装依赖：
+To install dependencies:
 ```bash
 pip install torch stable-baselines3 gymnasium pygame wandb
 ```
 
-## 使用方法
-### 1. DQN 模型训练
-运行以下命令启动 DQN 模型的训练：
+## Usage
+### 1. DQN Model Training
+To start training the DQN model, run the following command:
 ```bash
 python dqn_train.py
 ```
-训练过程中，智能体的表现（得分、存活步数等）将通过 WandB 可视化（如果启用）。训练完成后，模型文件将保存到 `models/` 目录。
+During training, the agent's performance (scores, survival steps, etc.) will be visualized via WandB (if enabled). Trained model files will be saved to the `models/` directory.
 
-### 2. PPO 模型训练
-运行以下命令启动 PPO 模型的训练：
+### 2. PPO Model Training
+To start training the PPO model, run the following command:
 ```bash
 python ppo_train.py
 ```
-同样，训练过程中的指标将通过 WandB 可视化（如果启用）。
+Similarly, training metrics will be visualized via WandB (if enabled).
 
-### 3. 查看训练结果
-训练结果（得分、存活步数等）将保存在 `results/` 目录中。你也可以通过 WandB 查看实时训练日志。
+### 3. Viewing Training Results
+Training results (scores, survival steps, etc.) will be saved in the `results/` directory. You can also view real-time training logs via WandB.
 
-## 项目对比
-- **DQN**：
-  - 学习曲线较为平稳，但收敛速度较慢。
-  - 在训练初期表现不佳，需要较多的训练时间才能达到理想水平。
-- **PPO**：
-  - 学习曲线增长迅速，收敛速度较快。
-  - 在训练初期即可达到较高分数，适合快速训练场景。
+## Comparison of Algorithms
+- **DQN**:
+  - The learning curve is relatively smooth but converges slowly.
+  - Performs poorly in the early stages of training and requires more training time to reach an ideal level.
+- **PPO**:
+  - The learning curve grows rapidly and converges quickly.
+  - Achieves high scores in the early stages of training and is suitable for quick training scenarios.
 
-## 实验结果
-项目中提供了详细的实验报告（`Report.pdf`），对比了 DQN 和 PPO 算法在贪吃蛇游戏中的表现。报告中包括算法原理、实验设计、结果分析等内容。
+## Experimental Results
+The project includes a detailed experimental report (`Report.pdf`), which compares the performance of DQN and PPO algorithms in the Snake game. The report covers algorithm principles, experimental design, and result analysis.
 
-## 贡献指南
-欢迎对项目进行改进和扩展！如果你有新的想法或优化建议，请通过以下方式参与：
-1. 提交 **Issues**：报告问题或提出建议。
-2. 提交 **Pull Requests**：贡献代码或改进文档。
+## Contribution Guidelines
+Contributions to this project are welcome! If you have new ideas or suggestions for improvement, please participate by:
+1. Submitting **Issues**: Report problems or suggest improvements.
+2. Submitting **Pull Requests**: Contribute code or improve documentation.
